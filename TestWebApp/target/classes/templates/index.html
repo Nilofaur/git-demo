@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Job Application</title>
+</head>
+<body>
+<h1>Test Jobs- index.html</h1>
+<ul>
+    <!-- Display all jobs dynamically -->
+    <th:block th:each="job : ${jobs}">
+        <li>
+            <strong th:text="${job.title}"></strong>:
+            <span th:text="${job.description}"></span>
+        </li>
+    </th:block>
+</ul>
+
+<h2>Apply for a Job</h2>
+<form action="/userApplication" method="post" th:object="${userApplication}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="number">Contact Number:</label>
+    <input type="text" id="number" name="number" required><br>
+
+    <label for="skills">Skills:</label>
+    <input type="text" id="skills" name="skills" required><br>
+
+    <label for="job">Select Job:</label>
+    <select id="job" name="jobTitle">
+        <option th:each="job : ${jobs}" th:value="${job.title}" th:text="${job.title}"></option>
+    </select><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

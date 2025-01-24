@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Applications</title>
+</head>
+<body>
+<h1>List of Applications</h1>
+<ul>
+  <th:block th:each="userApplication : ${userApplications}">
+    <li>
+      <strong>Name:</strong> <span th:text="${userApplication.name}"></span><br>
+      <strong>Number:</strong> <span th:text="${userApplication.number}"></span><br>
+      <strong>Skills:</strong> <span th:text="${userApplication.skills}"></span><br>
+      <strong>Job Title:</strong> <span th:text="${userApplication.jobTitle}"></span><br>
+    </li>
+  </th:block>
+</ul>
+</body>
+</html>
